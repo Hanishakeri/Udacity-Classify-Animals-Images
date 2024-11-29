@@ -3,8 +3,8 @@
 # */AIPND-revision/intropyproject-classify-pet-images/get_input_args.py
 #                                                                             
 # PROGRAMMER: Hanieh Shakeri
-# DATE CREATED: 15.Nov.2024                                   
-# REVISED DATE: 24.Nov.2024
+# DATE CREATED: 14/Nov/2024                                 
+# REVISED DATE: 24/Nov/2024
 # PURPOSE: Create a function that retrieves the following 3 command line inputs 
 #          from the user using the Argparse Python module. If the user fails to 
 #          provide some or all of the 3 inputs, then the default values are
@@ -39,12 +39,17 @@ def get_input_args():
      parse_args() -data structure that stores the command line arguments object  
     """
     # Create Parse using ArgumentParser
-    parser = argparse.ArgumentParser()
-    # Create 3 command line arguments as mentioned above using add_argument() from ArguementParser method
-    parser.add_argument('--dir', type=str , default='pet_images/', help='path to folder of images')
-    parser.add_argument('--arch', default='vgg', help='the CNN model architecture')
-    parser.add_argument('--dogfile', default='dognames.txt', help='text file of names of dog breeds')
     
+    # Create 3 command line arguments as mentioned above using add_argument() from ArguementParser method
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--dir', type=str, default='pet_images/', 
+                        help='path to folder of images')
+    # TODO: 1a. EDIT parse.add_argument statements BELOW to add type & help for:
+    #          --arch - the CNN model architecture
+    #          --dogfile - text file of names of dog breeds
+    parser.add_argument('--arch', default = 'vgg' ,help='the CNN model architecture')
+    parser.add_argument('--dogfile', default = 'dognames.txt',help='text file of names of dog breeds' )
     # Replace None with parser.parse_args() parsed argument collection that 
     # you created with this function 
     return parser.parse_args()
